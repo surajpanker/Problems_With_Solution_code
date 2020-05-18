@@ -1,4 +1,4 @@
-<p>
+
 Given an unsorted array A of size N of non-negative integers, find a continuous sub-array which adds to a given number S.
 
 Input:
@@ -28,16 +28,14 @@ Testcase1: sum of elements from 2nd position to 4th position is 12
 Testcase2: sum of elements from 1st position to 5th position is 15
 
 ** For More Input/Output Examples Use 'Expected Output' option **
-</p>
-<p>
+
 first we come to bruteforce solution that is we take one element and linear serach and sum it and check it is given sum or not.
 but it takes <strong>O(n^2) time.</strong>
-</p>
 
-<h6>Using sliding window</h6>
-<p> 
+
+Using sliding window<
 Using sliding window concept we redused to O(n) 
-</p>
+
 #include <iostream>
 using namespace std;
 
