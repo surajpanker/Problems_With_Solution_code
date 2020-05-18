@@ -1,0 +1,106 @@
+<p>
+Given an unsorted array A of size N of non-negative integers, find a continuous sub-array which adds to a given number S.
+
+Input:
+The first line of input contains an integer T denoting the number of test cases. Then T test cases follow. Each test case consists of two lines. The first line of each test case is N and S, where N is the size of array and S is the sum. The second line of each test case contains N space separated integers denoting the array elements.
+
+Output:
+For each testcase, in a new line, print the starting and ending positions(1 indexing) of first such occuring subarray from the left if sum equals to subarray, else print -1.
+
+Constraints:
+1 <= T <= 100
+1 <= N <= 107
+1 <= Ai <= 1010
+
+Example:
+Input:
+2
+5 12
+1 2 3 7 5
+10 15
+1 2 3 4 5 6 7 8 9 10
+Output:
+2 4
+1 5
+
+Explanation :
+Testcase1: sum of elements from 2nd position to 4th position is 12
+Testcase2: sum of elements from 1st position to 5th position is 15
+
+** For More Input/Output Examples Use 'Expected Output' option **
+</p>
+<p>
+first we come to bruteforce solution that is we take one element and linear serach and sum it and check it is given sum or not.
+but it takes <strong>O(n^2) time.</strong>
+</p>
+
+<h6>Using sliding window</h6>
+<p> 
+Using sliding window concept we redused to O(n) 
+</p>
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	int t;
+	cin>>t;
+	while(t--){
+	    int n,sum;
+	    cin>>n>>sum;
+	    int x;
+	    int i=0;
+	    int arr[n];
+	    while(i<n){
+	        cin>>arr[i];
+	        i++;
+	    }
+	    i=0;
+	    int start=0;
+	    int end =0;
+	    int sum1=0;
+	    int j=0;
+	    bool re =false;
+	    while(true){
+	        if(sum1<sum){
+	            sum1+=arr[j];
+	            j++;
+	        }
+	        if(sum1==sum){
+	            start=i+1;
+	            end=j;
+	            re=true;
+	            break;
+	        }
+	        if(j>n||sum1>sum)
+	        {
+	            i=i+1;
+	            j=i;
+	            sum1=0;
+	            
+	        }
+	        if(i>n){
+	            break;
+	            
+	        }
+	        
+	    }
+	    if(re)
+	    cout<<start << " "<<end<<"\n";
+	    else
+	    cout<<-1<<"\n";
+	    
+	    
+	}
+	
+	return 0;
+}
+
+
+
+
+
+
+
