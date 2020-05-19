@@ -1,0 +1,28 @@
+// we do inorder traverse and keep track privious value
+
+bool checkBST(Node* root, int* prev){
+  if (root) 
+    { 
+        if (!checkBST(root->left, prev)) 
+          return false; 
+   
+        // Allows only distinct valued nodes  
+        if (*prev != -1 && root->data <= *prev) 
+          return false; 
+   
+        *prev = root->data ; 
+   
+        return checkBST(root->right, prev); 
+    } 
+   
+    return true;
+   
+}
+bool isBST(Node* root) {
+    // Your code here
+     int prev = -1; 
+    if(checkBST(root,&prev))
+       return true;
+    else
+    return false;
+}
