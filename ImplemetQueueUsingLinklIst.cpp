@@ -42,6 +42,8 @@ Testcase 2: In the second testcase
 2      poped element will be {2} then the queue will be empty. 
 2      the queue is empty and hence -1
 1 3   the queue will be {3}.
+
+/*
 Note:The Input/Ouput format and Example given are used for system's internal purpose,
 and should be used by a user for Expected Output only. As it is a function problem,
 hence a user should not read any input from stdin/console. 
@@ -53,6 +55,7 @@ then pop() method so logically if we cover some edge cases that
 first rear ==null then ans=null
 second front = null rear =null <= this is my best case beacsue withour included it we get segmentstion fault
 so lets implemet==>
+*/
 struct QueueNode
 {
     int data;
@@ -101,8 +104,29 @@ int main()
     }
     }
     
+    /*
+    The :: (scope resolution) operator is used to get hidden names due to variable scopes so 
+    that you can still use them. 
+    
+    for example=>
+    #include <iostream>
+using namespace std;
+class X {
+   public:
+   static int count;
+};
+int X::count = 10;  // define static data member
+
+int main () {
+   int X = 0;   // hides class type X
+   cout << X::count << endl;   // use static member of class X
+}
+
+You can also use the scope resolution operator to use class names or class member names. 
+If a class member name is hidden, you can use it by prefixing it with its class name and the class scope operator
+*/
     void MyQueue:: push(int x)
-{   
+   {   
           
         QueueNode *newNode =new QueueNode(x);
         if(front==NULL)
